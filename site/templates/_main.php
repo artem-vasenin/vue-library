@@ -5,15 +5,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="<?=$seoDescription;?>">
     <meta name="keywords" content="<?=$seoKeywords;?>">
-	<link rel="stylesheet" type="text/css" href="<?=$config->urls->css?>styles.css">
-	<script>var mobiles = <?=$mobiles?>;</script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<title><?=$seoTitle;?></title>
+	<script>
+		var mobiles = <?=$mobiles?>;
+		var pageDefault = {
+			title: "<?=$page->title?>";
+		};
+	</script>
 </head>
 
-<body id="vue" class="js body <?=$page->template?>-tpl">
-
-	<?php include("views/{$page->template}/{$page->template}.view.php"); ?>
+<body class="js body <?=$page->template?>-tpl">
+	<div id="vue"></div>
 	<script src="<?= $config->urls->js ?>main.js"></script>
-
 </body>
 </html>

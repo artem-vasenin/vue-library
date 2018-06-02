@@ -23,8 +23,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   *, *::before, *::after {
   	box-sizing: border-box;
   }
+	body, html {
+		height: 100%;
+	}
+	.layout {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+	}
 </style>

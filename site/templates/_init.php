@@ -10,9 +10,7 @@
 
     $language = $home->language_ru[0];
 
-    $config->urls->css = $config->urls->templates . "static/css/";
     $config->urls->js = $config->urls->templates . "static/js/";
-    $config->urls->fonts = $config->urls->templates . "static/fonts/";
     $config->urls->img = $config->urls->templates . "static/img/";
 
     $u_agent = $_SERVER['HTTP_USER_AGENT'];
