@@ -3,5 +3,5 @@ site/assets/sessions/
 site/assets/logs/
 site/assets/cache/
 site/node_modules/
-site/.package-lock.json
+site/package-lock.json
 .vscode

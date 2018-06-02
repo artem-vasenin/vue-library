@@ -1,30 +1,39 @@
-<template>
-	<section class="section section--nav">
-		<div class="container">
-			<div class="row">
-				<nav class="col-md-12 menu">
-          <ul class="menu__list">
-            <li class="menu__item">
-              <a class="menu__link" href="#">Книги</a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link" href="#">Чат</a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link" href="#">Кабинет</a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link" href="#">Контакты</a>
-            </li>
-          </ul>
-				</nav>
-			</div>
-		</div>
-  </section>
+<template lang="html">
+    <section class="section section--nav">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-12 menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <router-link class="menu__link" to="/books">Книги</router-link>
+                        </li>
+                        <li class="menu__item">
+                            <router-link class="menu__link" to="/chat">Чат</router-link>
+                        </li>
+                        <li class="menu__item">
+                            <router-link class="menu__link" to="/profille">Кабинет</router-link>
+                        </li>
+                        <li class="menu__item">
+                            <router-link class="menu__link" to="/contacts">Контакты</router-link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
-
+    export default {
+        data() {
+            return {
+                
+            }
+        },
+        methods: {
+            
+        }
+    }
 </script>
 
 <style lang="scss">
@@ -62,5 +71,5 @@
         color: white;
       }
     }
-  }    
+  }
 </style>

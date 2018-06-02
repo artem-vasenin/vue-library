@@ -1,9 +1,9 @@
-<template>
+<template lang="html">
 	<header class="section section--header">
 		<div class="container header">
 			<div class="row">
 				<div class="logo col-md-3">
-					<a href="/" class="logo__link"><i class="fas fa-book fa-2x"></i></a>
+					<router-link class="logo__link" to="/"><i class="fas fa-book fa-2x"></i></router-link>
 				</div>
 				<div class="sitename col-md-6">
 					Сервис для совместного написания книг
@@ -17,7 +17,16 @@
 </template>
 
 <script>
-
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		methods: {
+			
+		}
+	}
 </script>
 
 <style lang="scss">

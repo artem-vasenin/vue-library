@@ -2,25 +2,23 @@
 	<div class="layout">
 		<Header/>
 		<Nav/>
-		<Page/>
+		<router-view></router-view>
     <Footer/>
 	</div>
 </template>
 
 <script>
-import Header from './components/Template/Header.vue'
-import Footer from './components/Template/Footer.vue'
-import Nav from './components/Template/Nav.vue'
-import Page from './components/Pages/Page.vue'
+	import Header from './components/Template/Header.vue';
+	import Footer from './components/Template/Footer.vue';
+	import Nav from './components/Template/Nav.vue';
 
-export default {
-	components: {
-    Header,
-		Nav,
-		Page,
-    Footer
-	}
-}
+	export default {
+		components: {
+			Header,
+			Nav,
+			Footer
+		}
+	};
 </script>
 
 <style lang="scss">
