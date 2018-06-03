@@ -26,4 +26,6 @@
         $contentArray["title"] = $pages->get($pageID)->title;
         $contentArray["body"] = htmlspecialchars_decode($pages->get($pageID)->body);
         echo json_encode($contentArray);
+    } else {
+        $session->redirect('/');
     }

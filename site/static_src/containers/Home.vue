@@ -1,7 +1,8 @@
 <template lang="html" id="home-tmplate">
     <div class="container home page">
         <div class="row">
-            <div class="col-md-12">
+            <Aside class="col-md-3" :options="asideOptions"/>
+            <div class="col-md-9">
                 <h1>{{page.title}}</h1>
                 <p v-html="page.body"></p>
             </div>
@@ -11,11 +12,15 @@
 
 <script>
     import axios from 'axios';
+    import Aside from '../components/Aside/Aside.vue';
 
     export default {
         data() {
             return {
-                page: {}
+                page: {},
+                asideOptions: {
+                    title: 'Сайдбар'
+                }
             }
         },
         methods: {
@@ -29,7 +34,10 @@
         },
         mounted: function () {
             this.loadPage();
-        }
+        },
+        components: {
+			Aside
+		}
     }
 </script>
 
