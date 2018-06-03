@@ -12,7 +12,13 @@
 </head>
 
 <body class="js body <?=$page->template?>-tpl">
-	<div id="vue"></div>
+	<div id="vue">
+        <script>
+            var pageObj = {
+                title: "<?=$page->title?>"
+            };
+        </script>
+    </div>
 	<script src="<?= $config->urls->js ?>main.js"></script>
 </body>
 </html>

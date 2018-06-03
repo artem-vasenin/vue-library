@@ -33,4 +33,7 @@
 		height: 100%;
 		flex-direction: column;
 	}
+	.page {
+		flex-grow: 10;
+	}
 </style>

@@ -5,9 +5,9 @@ import books from './containers/Books.vue';
 import chat from './containers/Chat.vue';
 import profille from './containers/Profille.vue';
 import contacts from './containers/Contacts.vue';
-import Resource from 'vue-resource';
+// import Resource from 'vue-resource';
 Vue.use(Router);
-Vue.use(Resource);
+// Vue.use(Resource);
 // роуты приложения
 const routes = [
     { path: '/', component: home },

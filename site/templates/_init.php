@@ -1,4 +1,5 @@
 <?php
+    header("Content-type: text/html");
     $seoDescription = $page->seo_description;
     $seoKeywords = $page->seo_keywords;
     $seoTitle = $page->get("seo_title|title");
