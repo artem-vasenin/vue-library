@@ -1,14 +1,15 @@
 <template lang="html">
 	<footer class="section section--footer">
-		<div class="container">
-			<div class="row">
-				<div class="logo col-md-3">
+		<v-container class="container">
+			<v-layout row wrap>
+				<v-flex md3 class="logo">
 					<router-link class="logo__link" to="/"><i class="fas fa-book fa-2x"></i></router-link>
-				</div>
-				<div class="copy col-md-6">Сервис создан любителем книг для любителей книг!</div>
-				<div class="counters col-md-3">Счётчики</div>
-			</div>
-		</div>
+				</v-flex>
+				<v-flex md9>
+					Сервис создан любителем книг для любителей книг!
+				</v-flex>
+			</v-layout>
+		</v-container>
   </footer>
 </template>
 
@@ -25,25 +26,6 @@
 	}
 </script>
 
-<style lang="scss">
-	.section--footer {
-		background: #313131;
-		color: white;
-		padding: 15px 0;
-	}
-	.logo {
-		&__link {
-			color: inherit;
-			&:hover {
-				color: red;
-			}
-		}
-	}
-	.copy {
-		text-align: center;
-		font-size: 12px;
-	}
-	.counters {
-		text-align: right;
-	}
+<style lang="scss" scoped>
+
 </style>

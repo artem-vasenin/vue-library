@@ -1,18 +1,18 @@
 <template lang="html">
 	<header class="section section--header">
-		<div class="container header">
-			<div class="row">
-				<div class="logo col-md-3">
+		<v-container class="container header">
+			<v-layout row wrap>
+				<v-flex md3 class="logo">
 					<router-link class="logo__link" to="/"><i class="fas fa-book fa-2x"></i></router-link>
-				</div>
-				<div class="sitename col-md-6">
+				</v-flex>
+				<v-flex md6>
 					Сервис для совместного написания книг
-				</div>
-				<div class="login col-md-3">
-					<button id="login" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i></button>
-				</div>
-			</div>
-		</div>
+				</v-flex>
+				<v-flex class="login" md3>
+					<button class="btn btn-primary"><i class="fas fa-sign-in-alt"></i></button>
+				</v-flex>
+			</v-layout>
+		</v-container>
   </header>
 </template>
 
@@ -30,20 +30,5 @@
 </script>
 
 <style lang="scss" scoped>
-	.section--header {
-		background: #313131;
-		color: white;
-		padding: 15px 0;
 
-		.sitename {
-			text-transform: uppercase;
-			font-size: 14px;
-			font-weight: bold;
-			text-align: center;
-		}
-
-		.login {
-			text-align: right;
-		}
-	}
 </style>

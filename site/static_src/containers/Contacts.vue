@@ -1,12 +1,12 @@
 <template lang="html" id="contacts-tmplate">
-  <div class="container contacts page">
-    <div class="row">
-      <div class="col-md-12">
+  <v-container class="container contacts page">
+    <v-layout row wrap>
+      <v-flex md12>
         <h1>{{page.title}}</h1>
         <p v-html="page.body"></p>
-      </div>
-    </div>
-  </div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -34,6 +34,6 @@
   }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 </style>

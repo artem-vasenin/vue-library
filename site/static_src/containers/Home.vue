@@ -1,13 +1,15 @@
 <template lang="html" id="home-tmplate">
-  <div class="container home page">
-    <div class="row">
-      <Aside class="col-md-3" :options="asideOptions"/>
-      <div class="col-md-9">
+  <v-container class="container home page">
+    <v-layout row wrap>
+      <v-flex md3>
+        <Aside :options="asideOptions"/>
+      </v-flex>
+      <v-flex md9>
         <h1>{{page.title}}</h1>
         <p v-html="page.body"></p>
-      </div>
-    </div>
-  </div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -15,6 +17,9 @@
   import Aside from '../components/Aside/Aside.vue';
 
   export default {
+    components: {
+      Aside
+    },
     data() {
       return {
         page: {},
@@ -36,12 +41,9 @@
     mounted: function () {
       this.loadPage();
     },
-    components: {
-      Aside
-    }
   }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 </style>

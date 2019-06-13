@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/artem-vasenin/vue-library.git"
   },
-  "author": "",
+  "author": "Rusich",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/artem-vasenin/vue-library/issues"
@@ -26,6 +26,7 @@
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16",
+    "vuetify": "^1.5.14",
     "vuex": "^3.0.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4",
