@@ -42,6 +42,9 @@ $config->appendTemplateFile = '_main.php';
  *
  */
 $config->debug = false;
+setlocale(LC_ALL,'ru_RU.UTF-8');
+$config->prependTemplateFile = '_init.php';
+$config->appendTemplateFile = '_main.php';
 
 
 /*** INSTALLER CONFIG ********************************************************************/

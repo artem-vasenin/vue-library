@@ -1,36 +1,37 @@
 <template lang="html" id="contacts-tmplate">
-    <div class="container contacts page">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{page.title}}</h1>
-                <p v-html="page.body"></p>
-            </div>
-        </div>
+  <div class="container contacts page">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{{page.title}}</h1>
+        <p v-html="page.body"></p>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    import axios from 'axios';
+  import axios from 'axios';
 
-    export default {
-        data() {
-            return {
-                page: {}
-            }
-        },
-        methods: {
-            loadPage: function () {
-                axios.get('http://vue-library/router/', {'params': {'tp': 'contacts'}}).then((response) => {
-                    this.page = response.data
-                }, (err) => {
-                    console.log(err)
-                })
-            }
-        },
-        mounted: function () {
-            this.loadPage();
-        }
+  export default {
+    data() {
+      return {
+        page: {}
+      }
+    },
+    methods: {
+      loadPage: function () {
+        axios.get('http://vue-library/api/pages/1021')
+          .then((response) => {
+            this.page = response.data
+          }, (err) => {
+            console.log(err)
+          })
+      }
+    },
+    mounted: function () {
+      this.loadPage();
     }
+  }
 </script>
 
 <style lang="sass">

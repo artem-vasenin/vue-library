@@ -29,7 +29,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.section--header {
 		background: #313131;
 		color: white;

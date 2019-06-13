@@ -1,7 +1,7 @@
 {
-  "name": "accenture6",
+  "name": "vue-library",
   "version": "1.0.0",
-  "description": "",
+  "description": "SPA приложение на vue.js и ProcessWire",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
