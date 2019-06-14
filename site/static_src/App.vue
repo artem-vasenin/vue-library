@@ -1,11 +1,13 @@
 <template>
-	<div class="layout">
-		<Nav/>
-		<main class="mt-5 fill-height">
-			<router-view></router-view>
-		</main>
-    <Footer/>
-	</div>
+	<v-app>
+		<v-content>
+			<Nav/>
+			<main class="mt-5 fill-height">
+				<router-view></router-view>
+			</main>
+			<Footer/>
+		</v-content>
+	</v-app>
 </template>
 
 <script>

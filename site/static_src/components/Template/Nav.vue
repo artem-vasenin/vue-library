@@ -40,6 +40,12 @@
         <v-icon>logout</v-icon>
       </v-btn>
     </v-toolbar>
+    <v-progress-linear
+      v-show="loading"
+      indeterminate
+      class="page-loader"
+      color="green darken-3"
+    ></v-progress-linear>
   </div>
 </template>
 
@@ -50,10 +56,18 @@
         items: [
           { title: 'Книги', sort: 1, href: '/books', },
           { title: 'Чат', sort: 2, href: '/chat', },
-          { title: 'Кабинет', sort: 3, href: '/profille', },
+          { title: 'Кабинет', sort: 3, href: '/profile', },
           { title: 'Контакты', sort: 4, href: '/contacts', },
         ],
       }
+    },
+    computed: {
+      user() {
+        return this.$store.state.user;
+      },
+      loading() {
+        return this.$store.state.loading;
+      },
     },
     methods: {
 
@@ -66,6 +80,11 @@
     position: relative;
     &__toolbar {
 
+    }
+    .page-loader {
+      position: fixed;
+      margin-top: 63px;
+      z-index: 10;
     }
   }
 </style>

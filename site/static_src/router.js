@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import home from './pages/home/Home.vue';
-import books from './pages/books/Books.vue';
+import books from './pages/books/books/Books.vue';
+import book from './pages/books/book/Book.vue';
 import chat from './pages/chat/Chat.vue';
-import profille from './pages/profile/Profille.vue';
+import profile from './pages/profile/Profile.vue';
 import contacts from './pages/contacts/Contacts.vue';
 import login from './pages/auth/Login.vue';
 // import Resource from 'vue-resource';
@@ -13,8 +14,9 @@ Vue.use(Router);
 const routes = [
     { path: '/', component: home },
     { path: '/books', component: books },
+    { path: '/book', component: book },
     { path: '/chat', component: chat },
-    { path: '/profille', component: profille },
+    { path: '/profile', component: profile },
     { path: '/contacts', component: contacts },
     { path: '/login', component: login },
 ];

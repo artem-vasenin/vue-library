@@ -65,6 +65,7 @@ if ($input->urlSegment1 && is_numeric($input->urlSegment1)) {
             $p->parent = $pages->get($sanitizer->text($params["parent"]));
             $p->name = $sanitizer->pageName($params["name"]);
             $p->title = $sanitizer->text($params["title"]);
+            $p->body = htmlspecialchars_decode($sanitizer->entitiesMarkdown($params["body"]));
             $p->save();
 
             if ($p->id) {
