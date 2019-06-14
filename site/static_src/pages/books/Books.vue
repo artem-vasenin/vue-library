@@ -4,6 +4,7 @@
       <v-flex md12>
         <h1>{{page.title}}</h1>
         <p v-html="page.body"></p>
+        <vue-editor v-model="content"></vue-editor>
       </v-flex>
     </v-layout>
   </v-container>
@@ -11,11 +12,16 @@
 
 <script>
   import axios from 'axios';
+  import { VueEditor } from "vue2-editor";
 
   export default {
+    components: {
+      VueEditor
+    },
     data() {
       return {
-        page: {}
+        page: {},
+        content: null,
       }
     },
     methods: {
