@@ -14,7 +14,7 @@
 
 <script>
   import axios from 'axios';
-  import Aside from '../components/Aside/Aside.vue';
+  import Aside from '../../components/Template/Aside.vue';
 
   export default {
     components: {

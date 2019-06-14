@@ -1,20 +1,19 @@
 <template>
 	<div class="layout">
-		<Header/>
 		<Nav/>
-		<router-view></router-view>
+		<main class="mt-5 fill-height">
+			<router-view></router-view>
+		</main>
     <Footer/>
 	</div>
 </template>
 
 <script>
-	import Header from './components/Template/Header.vue';
 	import Footer from './components/Template/Footer.vue';
 	import Nav from './components/Template/Nav.vue';
 
 	export default {
 		components: {
-			Header,
 			Nav,
 			Footer
 		}
