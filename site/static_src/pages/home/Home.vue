@@ -1,10 +1,7 @@
 <template lang="html" id="home-tmplate">
   <v-container class="container home page">
     <v-layout row wrap>
-      <v-flex md3>
-        <Aside :options="asideOptions"/>
-      </v-flex>
-      <v-flex md9>
+      <v-flex md12>
         <h1>{{page.title}}</h1>
         <p v-html="page.body"></p>
       </v-flex>
@@ -14,12 +11,8 @@
 
 <script>
   import axios from 'axios';
-  import Aside from '../../components/Template/Aside.vue';
 
   export default {
-    components: {
-      Aside
-    },
     data() {
       return {
         page: {},
