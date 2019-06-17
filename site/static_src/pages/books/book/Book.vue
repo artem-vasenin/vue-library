@@ -7,6 +7,7 @@
             <h1 class="headline mb-0">{{page.title}}</h1>
           </v-card-title>
           <v-card-text>
+            <h4 class="">Описание:</h4>
             <div class="books__desc" v-html="page.body"></div>
 
             <div v-if="showForm" class="books__add-form">
