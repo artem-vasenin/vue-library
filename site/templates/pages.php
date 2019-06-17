@@ -47,7 +47,7 @@ if ($input->urlSegment1 && is_numeric($input->urlSegment1)) {
     if (Rest\Request::is('put')) {
         $params = Rest\Request::params();
         $apiKey = $pages->get("template=api")->key;
-        $apiUser = "myapiuser";
+	    $apiUser = "skobarapi";
 
         if ($params["uname"] != $apiUser || $params["upass"] != $apiKey) {
             // unauthorized request
@@ -58,8 +58,9 @@ if ($input->urlSegment1 && is_numeric($input->urlSegment1)) {
 
             if ($p->id) {
                 $p->of(false);
-                $p->title = $sanitizer->text($params["title"]);
-                $p->name = $sanitizer->pageName($params["name"]);
+		            $p->title = $sanitizer->text($params["title"]);
+		            $p->desc = htmlspecialchars_decode($sanitizer->entitiesMarkdown($params["desc"]));
+		            $p->body = htmlspecialchars_decode($sanitizer->entitiesMarkdown($params["body"]));
                 $p->save();
                 $response["success"] = "Страница обновлена успешно";
             } else {

@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { VueEditor } from "vue2-editor";
 
 export default {
   components: {
     VueEditor
   },
+  props: ['id'],
   data() {
     return {
       page: {},
@@ -33,50 +33,44 @@ export default {
   methods: {
     openNewBookForm() {
       if (!this.showForm) {
+        this.newBook = {
+          title: this.page.title,
+          desc: this.page.desc,
+          body: this.page.body,
+        };
         this.showForm = true;
       } else {
         this.showForm = false;
-        this.newBook = {
-          title: '',
-          desc: '',
-          body: '',
-        };
       }
     },
     createNewBookForm() {
       const app = this;
       if (app.isAuthor) {
         const payload = {
-          template: "book",
-          parent: "/books/",
           title: app.newBook.title,
           desc: app.newBook.desc,
           body: app.newBook.body,
-          name: `book-${Date.now()}`,
         };
         console.log(payload);
-        app.$store.getters.ax.post('pages/1018', payload)
+        app.$store.getters.ax.put(`pages/${app.$props.id}`, payload)
           .then((response) => {
+            app.loadPage();
             console.log(response.data);
           })
           .catch((error) => {
             console.log(error);
           });
         app.openNewBookForm();
-        this.loadPage();
       }
     },
     loadPage() {
       const app = this;
-      app.$store.getters.ax.get('pages/1018')
+      app.$store.getters.ax.get(`pages/${app.$props.id}`)
         .then((response) => {
-          this.page = response.data
+          app.page = response.data
         }, (err) => {
           console.log(err);
         });
-    },
-    goToBook(id) {
-      this.$router.push(`/book/${id}`);
     },
   },
   mounted: function () {

@@ -7,14 +7,14 @@ import chat from './pages/chat/Chat.vue';
 import profile from './pages/profile/Profile.vue';
 import contacts from './pages/contacts/Contacts.vue';
 import login from './pages/auth/Login.vue';
-// import Resource from 'vue-resource';
+
 Vue.use(Router);
-// Vue.use(Resource);
+
 // роуты приложения
 const routes = [
     { path: '/', component: home },
     { path: '/books', component: books },
-    { path: '/book', component: book },
+    { path: '/book/:id', component: book, props: true, },
     { path: '/chat', component: chat },
     { path: '/profile', component: profile },
     { path: '/contacts', component: contacts },

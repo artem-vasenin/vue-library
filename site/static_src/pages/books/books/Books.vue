@@ -1,4 +1,4 @@
-<template lang="html" id="books-tmplate">
+<template lang="html" id="books-template">
   <v-container class="container books page">
     <v-layout>
       <v-flex xs12 mb-4>
@@ -38,22 +38,27 @@
         </v-card>
 
         <v-card v-if="page.children">
-          <v-list three-line>
+          <v-card-title primary-title>
+            <h1 class="headline mb-0">Список книг:</h1>
+          </v-card-title>
+          <v-list three-line class="py-0">
             <template v-for="(child, index) in page.children">
-              <v-divider v-if="index" inset></v-divider>
+              <hr class="ma-0">
 
-              <v-list-tile avatar @click="">
-                <v-list-tile-avatar>
-                  <v-icon>info</v-icon>
-                </v-list-tile-avatar>
-
-                <v-list-tile-content>
+              <v-list-tile avatar @click="goToBook(child.id)">
+                <v-list-tile-content class="py-2">
                   <v-list-tile-title>{{ child.title }}</v-list-tile-title>
-                  <v-list-tile-sub-title v-html="child.desc"></v-list-tile-sub-title>
+                  <v-list-tile-sub-title v-if="child.desc" v-html="child.desc"></v-list-tile-sub-title>
+                  <v-list-tile-sub-title v-else>
+                    <p>Описание отсутствует</p>
+                  </v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
             </template>
           </v-list>
+        </v-card>
+        <v-card v-else>
+          <v-card-text>Список книг пуст. Вы можете стать первым, кто добавит новую книгу!</v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
@@ -61,4 +66,4 @@
 </template>
 
 <script src="./Books.js"></script>
-<style src="./Books.scss" lang="sass" scoped></style>
+<style src="./Books.scss" lang="sass"></style>
