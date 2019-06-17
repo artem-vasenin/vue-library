@@ -11,6 +11,7 @@ export default {
       content: null,
       newBook: {
         title: '',
+        desc: '',
         body: '',
       },
       showForm: false,
@@ -37,6 +38,7 @@ export default {
         this.showForm = false;
         this.newBook = {
           title: '',
+          desc: '',
           body: '',
         };
       }
@@ -48,11 +50,12 @@ export default {
           template: "book",
           parent: "/books/",
           title: app.newBook.title,
+          desc: app.newBook.desc,
           body: app.newBook.body,
           name: `book-${Date.now()}`,
         };
         console.log(payload);
-        app.$store.getters.ax.post('1018', payload)
+        app.$store.getters.ax.post('pages/1018', payload)
           .then((response) => {
             console.log(response.data);
           })
@@ -60,17 +63,18 @@ export default {
             console.log(err);
           });
         app.openNewBookForm();
+        this.loadPage();
       }
     },
-    loadPage: function () {
+    loadPage() {
       const app = this;
-      app.$store.getters.ax.get('1018')
+      app.$store.getters.ax.get('pages/1018')
         .then((response) => {
           this.page = response.data
         }, (err) => {
           console.log(err);
         });
-    }
+    },
   },
   mounted: function () {
     this.loadPage();

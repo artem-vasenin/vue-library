@@ -10,8 +10,8 @@ if ($input->urlSegment1 && is_numeric($input->urlSegment1)) {
     if (Rest\Request::is('get')) {
         $p = $pages->get($pageId);
 
-        if ($p->id) {
-            $pdata = array("id" => $pageId, "children" => null);
+        if ($p->id && $p->children.count) {
+            $pdata = array("id" => $pageId);
             $p->of(false);
 
             foreach ($p->template->fieldgroup as $field) {
@@ -20,52 +20,24 @@ if ($input->urlSegment1 && is_numeric($input->urlSegment1)) {
                 $pdata[$field->name] = $field->type->sleepValue($p, $field, $value);
             }
 
-            if ($p->children()->count) {
-	            $pdata["children"] = array();
+	        $pdata["children"] = array();
 
-	            foreach ($p->children() as $child) {
-		            $chdata = array("id" => $child->id);
+		        foreach ($p->children() as $child) {
+		        	$chdata = array("id" => $child->id);
 
-		            foreach ($child->template->fieldgroup as $chfield) {
-			            if ($chfield->type instanceof FieldtypeFieldsetOpen) continue;
-			            $chvalue = $child->get($chfield->name);
-			            $chdata[$chfield->name] = htmlspecialchars_decode($chvalue);
-//			            $chdata[$chfield->name] = $chfield->type->sleepValue($child, $chfield, $chvalue);
-		            }
+			        foreach ($child->template->fieldgroup as $chfield) {
+				        if ($chfield->type instanceof FieldtypeFieldsetOpen) continue;
+				        $chvalue = $child->get($chfield->name);
+				        $chdata[$chfield->name] = $chfield->type->sleepValue($child, $chfield, $chvalue);
+			        }
 
-		            $pdata["children"][] = $chdata;
-	            }
-            }
+			        $pdata["children"][$child->id] = $chdata;
+		        }
 
             $response = $pdata;
         } else {
             $response["error"] = "Страница не найдена";
             $statuscode = 404;
-        }
-    }
-
-    if (Rest\Request::is('put')) {
-        $params = Rest\Request::params();
-        $apiKey = $pages->get("template=api")->key;
-        $apiUser = "myapiuser";
-
-        if ($params["uname"] != $apiUser || $params["upass"] != $apiKey) {
-            // unauthorized request
-            $response["error"] = "Ошибка авторизации";
-            $statuscode = 401;
-        } else {
-            $p = $pages->get($pageId);
-
-            if ($p->id) {
-                $p->of(false);
-                $p->title = $sanitizer->text($params["title"]);
-                $p->name = $sanitizer->pageName($params["name"]);
-                $p->save();
-                $response["success"] = "Страница обновлена успешно";
-            } else {
-                $response["error"] = "Страница не найджена";
-                $statuscode = 404;
-            }
         }
     }
 
@@ -83,7 +55,6 @@ if ($input->urlSegment1 && is_numeric($input->urlSegment1)) {
             $p->parent = $pages->get($sanitizer->text($params["parent"]));
             $p->name = $sanitizer->pageName($params["name"]);
             $p->title = $sanitizer->text($params["title"]);
-            $p->desc = htmlspecialchars_decode($sanitizer->entitiesMarkdown($params["desc"]));
             $p->body = htmlspecialchars_decode($sanitizer->entitiesMarkdown($params["body"]));
             $p->save();
 

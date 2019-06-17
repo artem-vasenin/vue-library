@@ -10,8 +10,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
-
   export default {
     data() {
       return {
@@ -20,7 +18,8 @@
     },
     methods: {
       loadPage: function () {
-        axios.get('http://vue-library/api/pages/1021')
+        const app = this;
+        app.$store.getters.ax.get('pages/1021')
           .then((response) => {
             this.page = response.data
           }, (err) => {

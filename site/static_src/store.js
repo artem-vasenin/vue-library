@@ -4,7 +4,7 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
-const baseURL = 'http://vue-library/api/pages/';
+const baseURL = 'http://vue-library/api/';
 const autorization = 'Basic c2tvYmFyYXBpOjE4MDI3OQ==';
 
 export const store = new Vuex.Store({
